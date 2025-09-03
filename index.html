@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travax - Smart Email Tools</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header>
+    <h1>Travax</h1>
+    <nav>
+      <a href="#generator">Sender</a>
+      <a href="#templates">Templates</a>
+      <a href="#gmail-batcher">Gmail Batcher</a>
+      <a href="#analytics">Analytics</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Email Sender -->
+    <section id="generator">
+      <h2>Email Sender</h2>
+      <textarea id="emailInput" placeholder="Enter email addresses separated by commas or new lines"></textarea>
+      <input type="text" id="emailSubject" placeholder="Enter subject" />
+      <textarea id="emailMessage" placeholder="Enter your message"></textarea>
+
+      <button onclick="generateEmails()">Generate</button>
+      <button onclick="copyOutput()">Copy</button>
+      <button onclick="exportOutput()">Export</button>
+      <button onclick="sendWithGmail()">Send with Gmail</button>
+
+      <div id="output"></div>
+    </section>
+
+    <!-- Templates -->
+    <section id="templates">
+      <h2>Email Templates</h2>
+      <select id="templateSelect" onchange="applyTemplate()">
+        <option value="">Select Template</option>
+        <option value="invite">Invitation</option>
+        <option value="promo">Promotion</option>
+        <option value="reminder">Reminder</option>
+      </select>
+      <textarea id="templateBox" placeholder="Template will appear here"></textarea>
+    </section>
+
+    <!-- Gmail Batcher -->
+    <section id="gmail-batcher">
+      <h2>Gmail Batcher</h2>
+      <textarea id="gmailInput" placeholder="Paste Gmail addresses here"></textarea>
+      <input type="number" id="batchSize" placeholder="Batch size (default 100)" />
+      <button onclick="splitGmails()">Split</button>
+      <button onclick="copyBatch()">Copy First Batch</button>
+      <button onclick="exportBatches()">Export Batches</button>
+      <div id="batchOutput"></div>
+    </section>
+
+    <!-- Analytics -->
+    <section id="analytics">
+      <h2>Analytics</h2>
+      <p>Total Emails Entered: <span id="totalEmails">0</span></p>
+      <p>Unique Emails: <span id="uniqueEmails">0</span></p>
+      <p>Duplicates Removed: <span id="duplicatesRemoved">0</span></p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      <p id="contactStatus"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Travax. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
